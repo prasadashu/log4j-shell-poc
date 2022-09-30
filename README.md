@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ```
 #### Usage:
 * Start a netcat listener to accept reverse shell connection.<br>
-```py
+```sh
 nc -lvnp 9001
 ```
 * Launch the exploit.<br>

