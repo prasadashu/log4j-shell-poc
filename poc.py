@@ -138,7 +138,7 @@ def main() -> None:
     # Print details of the GitHub repo
     print(Fore.BLUE + """
 [!] CVE: CVE-2021-44228
-[!] Github repo: https://github.com/kozmer/log4j-shell-poc
+[!] Forked from Github repo: https://github.com/kozmer/log4j-shell-poc
 """)
 
     # Declare the argument parser
