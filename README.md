@@ -5,11 +5,6 @@ Recently there was a new vulnerability in log4j, a java logging library that is 
 
 In this repository we have made and example vulnerable application and proof-of-concept (POC) exploit of it.
 
-#### Install Requirements:
-```bash
-pip install -r requirements.txt
-```
-
 #### Usage:
 * Clone this repo
 ```sh
@@ -41,10 +36,14 @@ cp -r /usr/lib/jvm/java-8-openjdk-amd64 ./
 nc -lvnp 9001
 ```
 
+* Build the docker image
+```sh
+docker build -t log4j-vulnerable-application .
+```
+
 * Start the vulnerable application
 ```sh
-1: docker build -t log4j-vulnerable-application .
-2: docker run --network host log4j-vulnerable-application
+docker run --network host log4j-vulnerable-application
 ```
 
 * Launch the exploit.<br>
